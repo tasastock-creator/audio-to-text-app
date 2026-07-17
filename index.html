@@ -17,6 +17,7 @@
 .layout{display:grid;grid-template-columns:380px minmax(0,1fr);gap:16px;align-items:start}.panel{background:var(--card);border-radius:21px;box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,.9)}.side{position:sticky;top:86px}.head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.head h3{margin:0;font-size:15px}.body{padding:17px}.drop{border:2px dashed #b8cac2;border-radius:17px;padding:24px 15px;text-align:center;background:#f8fbf9;cursor:pointer}.drop.drag{border-color:var(--orange);background:#fff6f2}.drop b{display:block;margin:7px 0 3px}.small{font-size:11px;color:var(--muted);line-height:1.45}.file{display:none;margin-top:12px;padding:12px;border-radius:13px;background:var(--soft)}.file.show{display:block}.file strong{display:block;overflow-wrap:anywhere}.file audio{width:100%;margin-top:8px}.field{margin-top:12px}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;font:inherit;background:#fff;color:var(--ink)}.field textarea{resize:vertical}.notice{margin-top:11px;padding:10px 11px;border-radius:11px;font-size:11px;line-height:1.45;background:#fff4cd}.notice.info{background:var(--soft)}
 .progress-wrap{display:none;margin-top:13px}.progress-wrap.show{display:block}.progress-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:6px}.progress{height:10px;background:#e4ebe7;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff7b52,#ffad8a);transition:width .2s}.progress-label,.status{font-size:11px;color:var(--muted)}.progress-label{font-weight:800;color:#173b74}.status{margin-top:6px}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800;cursor:pointer}.tab.active{background:var(--ink);color:#fff}.tab-pane{display:none}.tab-pane.active{display:block}.editor{width:100%;min-height:330px;border:0;outline:0;resize:vertical;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.stack{display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.wide{grid-column:span 2}.history{display:grid;gap:9px}.history-item{border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.history-item span{font-size:11px;color:var(--muted)}
 .install-tip{display:none}.install-tip.show{display:block}.footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
+.diagbox{margin-top:11px;padding:11px 12px;border-radius:13px;background:#f4f7fb;border:1px solid #c9d6ea}.diagbox h4{margin:0 0 8px;font-size:11px;color:#173b74}.diagbox pre{margin:0;white-space:pre-wrap;word-break:break-word;font:11px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;color:#30415d;max-height:180px;overflow:auto}
 @media(max-width:980px){.layout{grid-template-columns:1fr}.side{position:static}.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.app{padding:8px}.top{position:static;border-radius:14px;padding:11px}.brand h1{font-size:15px}.brand p{display:none}.top-actions .desktop{display:none}.hero{padding:18px;margin:10px 0}.hero h2{font-size:22px}.layout{gap:10px}.panel{border-radius:16px}.head{align-items:flex-start;flex-direction:column}.body{padding:13px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.editor{min-height:280px}.actions .btn{flex:1 1 45%}.tabs{overflow-x:auto;flex-wrap:nowrap;width:100%;padding-bottom:3px}.tab{white-space:nowrap}.top-actions{gap:5px}.btn{padding:10px 11px}.drop{padding:20px 12px}}
 @media print{.top,.hero,.side,.tabs,.actions,#historyPanel,.footer{display:none!important}.layout{display:block}.panel{box-shadow:none;border:0}.tab-pane{display:none!important}.tab-pane.active{display:block!important}}
@@ -41,6 +42,7 @@
 <button id="cancelBtn" class="btn outline" style="width:100%;margin-top:8px;display:none" onclick="cancelTranscription()">Cancel</button>
 <div id="progressWrap" class="progress-wrap"><div class="progress-head"><div class="progress-label" id="progressLabel">Ready</div><div class="progress-label" id="progressPercent">0%</div></div><div class="progress"><div id="bar" class="bar"></div></div><div id="status" class="status"></div></div>
 <div class="notice"><strong>First use:</strong> the selected free AI model downloads once and is then cached. Keep this page open during the first download.</div>
+<div class="diagbox"><h4>Download diagnostics</h4><pre id="diagBox">Ready. Use Mobile Fast. If download fails, the message here will show the browser state and the exact error text.</pre></div>
 <div class="field"><label>Or paste text</label><textarea id="quickPaste" rows="4"></textarea></div><button class="btn outline" style="width:100%" onclick="usePasted()">Use Pasted Text</button>
 <div id="installTip" class="notice install-tip"><strong>Phone installation:</strong> open the hosted app in Chrome or Safari and choose Add to Home Screen / Install App.</div>
 </div></aside>
@@ -137,6 +139,7 @@ function bindDrop(){const d=$('drop'),i=$('fileInput');d.onclick=()=>i.click();i
 function loadFile(f){if(!f)return;file=f;$('fileName').textContent=f.name;$('fileMeta').textContent=`${(f.size/1048576).toFixed(2)} MB · ${f.type||'audio'}`;$('player').src=URL.createObjectURL(f);$('fileCard').classList.add('show')}
 function bindTabs(){document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showTab(b.dataset.tab))}function showTab(id){document.querySelectorAll('.tab,.tab-pane').forEach(x=>x.classList.remove('active'));document.querySelector(`[data-tab="${id}"]`)?.classList.add('active');$(id).classList.add('active')}
 function setProgress(n,t){const p=Math.max(0,Math.min(100,n));$('progressWrap').classList.add('show');$('bar').style.width=p+'%';$('progressPercent').textContent=p+'%';$('progressLabel').textContent=p===0?'Ready':p<100?'Working':'Done';$('status').textContent=t}
+function setDiag(text){$('diagBox').textContent=text}
 function setBusy(v){$('transcribeBtn').disabled=v;$('preloadBtn').disabled=v;$('cancelBtn').style.display=v?'block':'none';$('transcribeBtn').textContent=v?'Processing in background…':'Transcribe Audio'}
 let workerWatchdog=null;
 function clearWorkerWatchdog(){if(workerWatchdog){clearTimeout(workerWatchdog);workerWatchdog=null}}
@@ -146,12 +149,13 @@ function getWorker(){
   if(location.protocol==='file:'){
     throw new Error('This browser build cannot start the AI worker from a file:/// page. Open the HTML from a simple static host, or run it from Chrome/Safari with a local web server.');
   }
+  setDiag(`Browser: ${navigator.userAgent}\nOnline: ${navigator.onLine}\nWorker source: inline blob\nTransformers.js: https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2\nModel: Xenova/whisper-tiny\nState: creating worker`);
   worker=new Worker(URL.createObjectURL(new Blob([WORKER_SOURCE],{type:'text/javascript'})),{type:'module'});
-  worker.onmessage=e=>{const m=e.data;if(m.type==='progress')setProgress(m.percent,m.message);if(m.type==='ready'){clearWorkerWatchdog();currentModel=m.model;setProgress(100,'AI model ready.');setBusy(false)}if(m.type==='result'){clearWorkerWatchdog();const t=(m.text||'').trim();$('originalText').value=t;$('editableText').value=t;setProgress(100,'Transcript complete.');setBusy(false);showTab('original')}if(m.type==='error'){clearWorkerWatchdog();setProgress(0,'Error: '+m.message);setBusy(false)}};
-  worker.onerror=e=>{clearWorkerWatchdog();setProgress(0,'Worker error. Reload the app and try Fast mode.');setBusy(false)};
+  worker.onmessage=e=>{const m=e.data;if(m.type==='progress'){setDiag(`${$('diagBox').textContent}\n${new Date().toLocaleTimeString()} progress ${Math.round(m.percent||0)}%: ${m.message}`);setProgress(m.percent,m.message)}if(m.type==='ready'){clearWorkerWatchdog();currentModel=m.model;setDiag(`${$('diagBox').textContent}\n${new Date().toLocaleTimeString()} model ready: ${m.model}`);setProgress(100,'AI model ready.');setBusy(false)}if(m.type==='result'){clearWorkerWatchdog();const t=(m.text||'').trim();setDiag(`${$('diagBox').textContent}\n${new Date().toLocaleTimeString()} transcript complete, ${t.length} chars`);$('originalText').value=t;$('editableText').value=t;setProgress(100,'Transcript complete.');setBusy(false);showTab('original')}if(m.type==='error'){clearWorkerWatchdog();setDiag(`${$('diagBox').textContent}\n${new Date().toLocaleTimeString()} error: ${m.message}`);setProgress(0,'Error: '+m.message);setBusy(false)}};
+  worker.onerror=e=>{clearWorkerWatchdog();setDiag(`${$('diagBox').textContent}\n${new Date().toLocaleTimeString()} worker.onerror: ${e.message||'unknown'}`);setProgress(0,'Worker error. Reload the app and try Fast mode.');setBusy(false)};
   return worker
 }
-async function preloadModel(){setBusy(true);const cfg=models[$('profile').value];setProgress(1,'Loading model…');armWorkerWatchdog('Loading model',25000);getWorker().postMessage({type:'load',config:cfg})}
+async function preloadModel(){setBusy(true);const cfg=models[$('profile').value];setDiag(`Browser: ${navigator.userAgent}\nOnline: ${navigator.onLine}\nWorker source: inline blob\nTransformers.js: https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2\nModel: ${cfg.model}\nState: loading model`);setProgress(1,'Loading model…');armWorkerWatchdog('Loading model',25000);getWorker().postMessage({type:'load',config:cfg})}
 async function transcribe(){
   if(!file){alert('Choose an audio file first.');return}
   if(!navigator.onLine){
@@ -163,17 +167,19 @@ async function transcribe(){
   try{
     const audio=await decode(file);
     const cfg=models[$('profile').value],lang=$('language').value;
+    setDiag(`Browser: ${navigator.userAgent}\nOnline: ${navigator.onLine}\nWorker source: inline blob\nTransformers.js: https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2\nModel: ${cfg.model}\nAudio bytes: ${file.size}\nState: decoding complete; sending to worker`);
     setProgress(5,'Sending audio to background worker…');
     armWorkerWatchdog('Transcription',45000);
     getWorker().postMessage({type:'transcribe',audio,config:cfg,language:lang},[audio.buffer])
   }catch(e){
     clearWorkerWatchdog();
     const message=String(e?.message||e);
+    setDiag(`Browser: ${navigator.userAgent}\nOnline: ${navigator.onLine}\nWorker source: inline blob\nTransformers.js: https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2\nModel: ${cfg?.model||'unknown'}\nError: ${message}`);
     setProgress(0,message.includes('NetworkError')?'Model download failed. Check internet access, VPN, firewall, or blocked CDN access.':('Could not decode this audio: '+message));
     setBusy(false)
   }
 }
-function cancelTranscription(){clearWorkerWatchdog();if(worker){worker.terminate();worker=null}setBusy(false);setProgress(0,'Cancelled. Choose Fast mode and try again.')}
+function cancelTranscription(){clearWorkerWatchdog();if(worker){worker.terminate();worker=null}setBusy(false);setProgress(0,'Cancelled. Choose Mobile Fast and try again.');setDiag(`Browser: ${navigator.userAgent}\nOnline: ${navigator.onLine}\nState: cancelled by user`)}
 async function decode(f){
   const buf=await f.arrayBuffer();
   const ctx=new (window.AudioContext||window.webkitAudioContext)();
