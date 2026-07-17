@@ -20,6 +20,7 @@ This app is now intended to be hosted as a plain static website.
 2. Upload the files in this folder.
 3. In repository settings, turn on GitHub Pages for the main branch.
 4. Open the published HTTPS URL on your phone or computer.
+5. Use the GitHub Pages URL as your main app link instead of `localhost`.
 
 ## Netlify
 
@@ -37,3 +38,4 @@ It needs to be opened from `http://` or `https://`.
 - The first model download still needs internet.
 - After that, the browser caches the model and repeat use is faster.
 - The transcription runs in the browser after the page loads.
+- For the best experience, use the smallest model choice on the hosted site.

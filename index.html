@@ -3,16 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f6c55">
+<meta name="theme-color" content="#173b74">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>TASA Audio to Text & Print Jobs</title>
 <style>
-:root{--ink:#12221c;--muted:#66746e;--line:#d8e2dd;--bg:#f3f6f4;--card:#fff;--green:#0f6c55;--orange:#ff5a36;--soft:#eaf4f0;--shadow:0 12px 30px rgba(18,39,32,.10)}
+:root{--ink:#12221c;--muted:#66746e;--line:#d8e2dd;--bg:#f3f6f4;--card:#fff;--green:#173b74;--orange:#ff5a36;--soft:#eaf4f0;--shadow:0 12px 30px rgba(18,39,32,.10)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(135deg,#eef4f0,#fafafa 55%,#f6eee9);color:var(--ink)}
 .app{max-width:1450px;margin:auto;padding:16px}.top{position:sticky;top:8px;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:14px 16px;border-radius:18px;box-shadow:var(--shadow)}
 .brand{display:flex;align-items:center;gap:11px}.logo{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,var(--orange),#ff925e);color:white;font-weight:900}.brand h1{font-size:18px;margin:0}.brand p{font-size:11px;color:var(--muted);margin:2px 0 0}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:11px 14px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;background:#edf2ef;color:var(--ink)}.btn:disabled{opacity:.55;cursor:not-allowed}.btn.primary{background:var(--orange);color:#fff}.btn.green{background:var(--green);color:#fff}.btn.outline{background:#fff;border:1px solid var(--line)}
-.hero{margin:16px 0;padding:22px;border-radius:22px;background:linear-gradient(120deg,#143127,#0f6c55);color:#fff;box-shadow:var(--shadow)}.hero h2{font-size:28px;margin:0 0 8px}.hero p{margin:0;color:#dbeae4;line-height:1.5}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.chip{font-size:11px;font-weight:800;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.12)}
+.hero{margin:16px 0;padding:22px;border-radius:22px;background:linear-gradient(120deg,#10264d,#173b74);color:#fff;box-shadow:var(--shadow)}.hero h2{font-size:28px;margin:0 0 8px}.hero p{margin:0;color:#dbe5fb;line-height:1.5}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.chip{font-size:11px;font-weight:800;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.12)}
 .layout{display:grid;grid-template-columns:380px minmax(0,1fr);gap:16px;align-items:start}.panel{background:var(--card);border-radius:21px;box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,.9)}.side{position:sticky;top:86px}.head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.head h3{margin:0;font-size:15px}.body{padding:17px}.drop{border:2px dashed #b8cac2;border-radius:17px;padding:24px 15px;text-align:center;background:#f8fbf9;cursor:pointer}.drop.drag{border-color:var(--orange);background:#fff6f2}.drop b{display:block;margin:7px 0 3px}.small{font-size:11px;color:var(--muted);line-height:1.45}.file{display:none;margin-top:12px;padding:12px;border-radius:13px;background:var(--soft)}.file.show{display:block}.file strong{display:block;overflow-wrap:anywhere}.file audio{width:100%;margin-top:8px}.field{margin-top:12px}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;font:inherit;background:#fff;color:var(--ink)}.field textarea{resize:vertical}.notice{margin-top:11px;padding:10px 11px;border-radius:11px;font-size:11px;line-height:1.45;background:#fff4cd}.notice.info{background:var(--soft)}
-.progress-wrap{display:none;margin-top:13px}.progress-wrap.show{display:block}.progress{height:10px;background:#e4ebe7;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--orange),#ff9b72);transition:width .2s}.status{font-size:11px;color:var(--muted);margin-top:6px}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800;cursor:pointer}.tab.active{background:var(--ink);color:#fff}.tab-pane{display:none}.tab-pane.active{display:block}.editor{width:100%;min-height:330px;border:0;outline:0;resize:vertical;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.stack{display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.wide{grid-column:span 2}.history{display:grid;gap:9px}.history-item{border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.history-item span{font-size:11px;color:var(--muted)}
+.progress-wrap{display:none;margin-top:13px}.progress-wrap.show{display:block}.progress-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:6px}.progress{height:10px;background:#e4ebe7;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff7b52,#ffad8a);transition:width .2s}.progress-label,.status{font-size:11px;color:var(--muted)}.progress-label{font-weight:800;color:#173b74}.status{margin-top:6px}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800;cursor:pointer}.tab.active{background:var(--ink);color:#fff}.tab-pane{display:none}.tab-pane.active{display:block}.editor{width:100%;min-height:330px;border:0;outline:0;resize:vertical;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.stack{display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.wide{grid-column:span 2}.history{display:grid;gap:9px}.history-item{border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.history-item span{font-size:11px;color:var(--muted)}
 .install-tip{display:none}.install-tip.show{display:block}.footer{text-align:center;color:var(--muted);font-size:11px;padding:22px}
 @media(max-width:980px){.layout{grid-template-columns:1fr}.side{position:static}.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.app{padding:8px}.top{position:static;border-radius:14px;padding:11px}.brand h1{font-size:15px}.brand p{display:none}.top-actions .desktop{display:none}.hero{padding:18px;margin:10px 0}.hero h2{font-size:22px}.layout{gap:10px}.panel{border-radius:16px}.head{align-items:flex-start;flex-direction:column}.body{padding:13px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.editor{min-height:280px}.actions .btn{flex:1 1 45%}.tabs{overflow-x:auto;flex-wrap:nowrap;width:100%;padding-bottom:3px}.tab{white-space:nowrap}.top-actions{gap:5px}.btn{padding:10px 11px}.drop{padding:20px 12px}}
@@ -21,8 +24,8 @@
 </head>
 <body>
 <div class="app">
-<header class="top"><div class="brand"><div class="logo">TA</div><div><h1>TASA Audio to Text & Print Jobs</h1><p>Free local transcription · responsive · installable</p></div></div><div class="top-actions"><button id="installBtn" class="btn green" hidden>Install App</button><button class="btn outline desktop" onclick="newJob()">New</button><button class="btn primary" onclick="saveJob()">Save</button></div></header>
-<section class="hero"><h2>Audio to text without freezing the page.</h2><p>The AI now runs in a background worker. Use it as a simple audio-to-text converter, or complete the optional print job details and email the production brief.</p><div class="chips"><span class="chip">No API key</span><span class="chip">Original transcript first</span><span class="chip">Email transcript</span><span class="chip">Full job details</span><span class="chip">Phone responsive</span></div></section>
+<header class="top"><div class="brand"><div class="logo">TA</div><div><h1>TASA Audio to Text & Print Jobs</h1><p>GitHub Pages build v15 · responsive · browser-only</p></div></div><div class="top-actions"><button id="installBtn" class="btn green" hidden>Install App</button><button class="btn outline desktop" onclick="newJob()">New</button><button class="btn primary" onclick="saveJob()">Save</button></div></header>
+<section class="hero"><h2>Audio to text without freezing the page.</h2><p>This version is tuned for the hosted GitHub app. It uses the smallest browser model first so it is faster and more reliable on desktop and phone.</p><div class="chips"><span class="chip">No API key</span><span class="chip">Original transcript first</span><span class="chip">GitHub Pages ready</span><span class="chip">Phone responsive</span><span class="chip">Build v15</span></div></section>
 <main class="layout">
 <aside class="panel side"><div class="head"><h3>1. Add audio</h3><span class="small">M4A · MP3 · WAV · OPUS</span></div><div class="body">
 <input id="fileInput" type="file" accept="audio/*,.m4a,.mp3,.wav,.ogg,.opus,.webm" hidden>
@@ -30,13 +33,13 @@
 <div id="fileCard" class="file"><strong id="fileName"></strong><span id="fileMeta" class="small"></span><audio id="player" controls></audio></div>
 <div class="field"><label>Customer / Company</label><input id="customerName" placeholder="Optional"></div>
 <div class="field"><label>Job reference</label><input id="jobRef"></div>
-<div class="field"><label>Speed / accuracy</label><select id="profile"><option value="mobile">Mobile Fast — Tiny English / multilingual</option><option value="fast" selected>Fast — Whisper Tiny</option><option value="balanced">Balanced — Whisper Base</option><option value="accurate">Accurate — Whisper Small</option></select></div>
+<div class="field"><label>Speed / accuracy</label><select id="profile"><option value="mobile" selected>Mobile Fast — Tiny English / multilingual</option><option value="fast">Fast — Whisper Tiny</option></select></div>
 <div class="field"><label>Language</label><select id="language"><option value="auto">Auto detect</option><option value="en">English</option><option value="af">Afrikaans</option><option value="zu">isiZulu</option><option value="xh">isiXhosa</option></select></div>
-<div class="notice info"><strong>Recommended:</strong> Fast on computers and Mobile Fast on phones. The heavier Small model can still be slow on older devices.</div>
+<div class="notice info"><strong>Recommended:</strong> Use Mobile Fast first. It is the smallest model and is the best choice for GitHub Pages and phones.</div>
 <button id="preloadBtn" class="btn outline" style="width:100%;margin-top:11px" onclick="preloadModel()">Load AI Model</button>
 <button id="transcribeBtn" class="btn green" style="width:100%;margin-top:8px" onclick="transcribe()">Transcribe Audio</button>
 <button id="cancelBtn" class="btn outline" style="width:100%;margin-top:8px;display:none" onclick="cancelTranscription()">Cancel</button>
-<div id="progressWrap" class="progress-wrap"><div class="progress"><div id="bar" class="bar"></div></div><div id="status" class="status"></div></div>
+<div id="progressWrap" class="progress-wrap"><div class="progress-head"><div class="progress-label" id="progressLabel">Ready</div><div class="progress-label" id="progressPercent">0%</div></div><div class="progress"><div id="bar" class="bar"></div></div><div id="status" class="status"></div></div>
 <div class="notice"><strong>First use:</strong> the selected free AI model downloads once and is then cached. Keep this page open during the first download.</div>
 <div class="field"><label>Or paste text</label><textarea id="quickPaste" rows="4"></textarea></div><button class="btn outline" style="width:100%" onclick="usePasted()">Use Pasted Text</button>
 <div id="installTip" class="notice install-tip"><strong>Phone installation:</strong> open the hosted app in Chrome or Safari and choose Add to Home Screen / Install App.</div>
@@ -60,7 +63,7 @@
 <script>
 const $=id=>document.getElementById(id);let file=null,worker=null,currentModel='';
 const persistent=['customerName','recipientEmail','profile','language'];
-const models={mobile:{model:'Xenova/whisper-tiny',label:'Mobile Fast',chunk:20,stride:3},fast:{model:'Xenova/whisper-tiny',label:'Fast',chunk:25,stride:4},balanced:{model:'Xenova/whisper-base',label:'Balanced',chunk:25,stride:4},accurate:{model:'Xenova/whisper-small',label:'Accurate',chunk:20,stride:3}};
+const models={mobile:{model:'Xenova/whisper-tiny',label:'Mobile Fast',chunk:20,stride:3},fast:{model:'Xenova/whisper-tiny',label:'Fast',chunk:20,stride:3}};
 const WORKER_SOURCE=`const { pipeline, env } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2');
 env.allowLocalModels = false;
 env.useBrowserCache = true;
@@ -117,25 +120,60 @@ onmessage = async e => {
   }
 };`;
 function init(){persistent.forEach(id=>{const v=localStorage.getItem('tasa10_'+id);if(v)$(id).value=v;$(id).addEventListener('change',()=>localStorage.setItem('tasa10_'+id,$(id).value))});$('jobRef').value=makeRef();bindDrop();bindTabs();renderHistory();if(/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)){$('profile').value='mobile';$('installTip').classList.add('show')}}
+async function cleanupOldBrowserState(){
+  try{
+    if('serviceWorker' in navigator){
+      const regs=await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r=>r.unregister()));
+    }
+    if('caches' in window){
+      const keys=await caches.keys();
+      await Promise.all(keys.map(k=>caches.delete(k)));
+    }
+  }catch(_){}
+}
 function makeRef(){const d=new Date(),p=n=>String(n).padStart(2,'0');return`TASA-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`}
 function bindDrop(){const d=$('drop'),i=$('fileInput');d.onclick=()=>i.click();i.onchange=e=>loadFile(e.target.files[0]);['dragenter','dragover'].forEach(x=>d.addEventListener(x,e=>{e.preventDefault();d.classList.add('drag')}));['dragleave','drop'].forEach(x=>d.addEventListener(x,e=>{e.preventDefault();d.classList.remove('drag')}));d.addEventListener('drop',e=>loadFile(e.dataTransfer.files[0]))}
 function loadFile(f){if(!f)return;file=f;$('fileName').textContent=f.name;$('fileMeta').textContent=`${(f.size/1048576).toFixed(2)} MB · ${f.type||'audio'}`;$('player').src=URL.createObjectURL(f);$('fileCard').classList.add('show')}
 function bindTabs(){document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showTab(b.dataset.tab))}function showTab(id){document.querySelectorAll('.tab,.tab-pane').forEach(x=>x.classList.remove('active'));document.querySelector(`[data-tab="${id}"]`)?.classList.add('active');$(id).classList.add('active')}
-function setProgress(n,t){$('progressWrap').classList.add('show');$('bar').style.width=Math.max(0,Math.min(100,n))+'%';$('status').textContent=t}
+function setProgress(n,t){const p=Math.max(0,Math.min(100,n));$('progressWrap').classList.add('show');$('bar').style.width=p+'%';$('progressPercent').textContent=p+'%';$('progressLabel').textContent=p===0?'Ready':p<100?'Working':'Done';$('status').textContent=t}
 function setBusy(v){$('transcribeBtn').disabled=v;$('preloadBtn').disabled=v;$('cancelBtn').style.display=v?'block':'none';$('transcribeBtn').textContent=v?'Processing in background…':'Transcribe Audio'}
+let workerWatchdog=null;
+function clearWorkerWatchdog(){if(workerWatchdog){clearTimeout(workerWatchdog);workerWatchdog=null}}
+function armWorkerWatchdog(label,ms){clearWorkerWatchdog();workerWatchdog=setTimeout(()=>{if(worker){worker.terminate();worker=null}setBusy(false);setProgress(0,`${label} timed out. Check internet access or use a smaller model.`)},ms)}
 function getWorker(){
   if(worker)return worker;
   if(location.protocol==='file:'){
     throw new Error('This browser build cannot start the AI worker from a file:/// page. Open the HTML from a simple static host, or run it from Chrome/Safari with a local web server.');
   }
   worker=new Worker(URL.createObjectURL(new Blob([WORKER_SOURCE],{type:'text/javascript'})),{type:'module'});
-  worker.onmessage=e=>{const m=e.data;if(m.type==='progress')setProgress(m.percent,m.message);if(m.type==='ready'){currentModel=m.model;setProgress(100,'AI model ready.');setBusy(false)}if(m.type==='result'){const t=(m.text||'').trim();$('originalText').value=t;$('editableText').value=t;setProgress(100,'Transcript complete.');setBusy(false);showTab('original')}if(m.type==='error'){setProgress(0,'Error: '+m.message);setBusy(false)}};
-  worker.onerror=e=>{setProgress(0,'Worker error. Reload the app and try Fast mode.');setBusy(false)};
+  worker.onmessage=e=>{const m=e.data;if(m.type==='progress')setProgress(m.percent,m.message);if(m.type==='ready'){clearWorkerWatchdog();currentModel=m.model;setProgress(100,'AI model ready.');setBusy(false)}if(m.type==='result'){clearWorkerWatchdog();const t=(m.text||'').trim();$('originalText').value=t;$('editableText').value=t;setProgress(100,'Transcript complete.');setBusy(false);showTab('original')}if(m.type==='error'){clearWorkerWatchdog();setProgress(0,'Error: '+m.message);setBusy(false)}};
+  worker.onerror=e=>{clearWorkerWatchdog();setProgress(0,'Worker error. Reload the app and try Fast mode.');setBusy(false)};
   return worker
 }
-async function preloadModel(){setBusy(true);const cfg=models[$('profile').value];getWorker().postMessage({type:'load',config:cfg})}
-async function transcribe(){if(!file){alert('Choose an audio file first.');return}setBusy(true);setProgress(3,'Preparing audio…');try{const audio=await decode(file);const cfg=models[$('profile').value],lang=$('language').value;setProgress(10,'Sending audio to background worker…');getWorker().postMessage({type:'transcribe',audio,config:cfg,language:lang},[audio.buffer])}catch(e){setProgress(0,'Could not decode this audio: '+e.message);setBusy(false)}}
-function cancelTranscription(){if(worker){worker.terminate();worker=null}setBusy(false);setProgress(0,'Cancelled. Choose Fast mode and try again.')}
+async function preloadModel(){setBusy(true);const cfg=models[$('profile').value];setProgress(1,'Loading model…');armWorkerWatchdog('Loading model',25000);getWorker().postMessage({type:'load',config:cfg})}
+async function transcribe(){
+  if(!file){alert('Choose an audio file first.');return}
+  if(!navigator.onLine){
+    setProgress(0,'You are offline. The model must be downloaded the first time, so please connect to the internet and try again.');
+    return
+  }
+  setBusy(true);
+  setProgress(3,'Preparing audio…');
+  try{
+    const audio=await decode(file);
+    const cfg=models[$('profile').value],lang=$('language').value;
+    setProgress(5,'Sending audio to background worker…');
+    armWorkerWatchdog('Transcription',45000);
+    getWorker().postMessage({type:'transcribe',audio,config:cfg,language:lang},[audio.buffer])
+  }catch(e){
+    clearWorkerWatchdog();
+    const message=String(e?.message||e);
+    setProgress(0,message.includes('NetworkError')?'Model download failed. Check internet access, VPN, firewall, or blocked CDN access.':('Could not decode this audio: '+message));
+    setBusy(false)
+  }
+}
+function cancelTranscription(){clearWorkerWatchdog();if(worker){worker.terminate();worker=null}setBusy(false);setProgress(0,'Cancelled. Choose Fast mode and try again.')}
 async function decode(f){
   const buf=await f.arrayBuffer();
   const ctx=new (window.AudioContext||window.webkitAudioContext)();
@@ -177,6 +215,6 @@ function deleteJob(id){if(!confirm('Delete this job?'))return;const jobs=JSON.pa
 function newJob(){detailIds.filter(x=>!['customerName'].includes(x)).forEach(x=>$(x).value='');['originalText','editableText','instructionsText','emailText','emailSubject','quickPaste'].forEach(x=>$(x).value='');$('jobRef').value=makeRef();file=null;$('fileCard').classList.remove('show');$('progressWrap').classList.remove('show');showTab('original')}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function setupInstall(){$('installBtn').remove()}
-init();
+cleanupOldBrowserState().finally(init);
 </script>
 </body></html>
